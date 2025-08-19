@@ -1,60 +1,46 @@
-/* Search bar container */
 .search-container {
   display: flex;
-  justify-content: flex-end; /* aligns the group to the end (right in RTL) */
+  justify-content: flex-end;
   width: 100%;
   margin-top: 1rem;
   box-sizing: border-box;
 }
 
-/* Inner search bar row */
 .search-container .search-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  width: auto; /* shrink to fit content */
+  width: auto;
 }
 
-/* Input width */
 .search-container .search-row .aegov-form-control {
-  width: 50%; /* input takes 50% of parent */
+  width: 50%;
 }
 
-/* Button alignment */
 .search-container .search-row button {
   width: auto;
 }
 
-/* Responsive adjustments for small screens */
 @media (max-width: 640px) {
   .search-container {
-    justify-content: center; /* center on small screens */
+    justify-content: center;
   }
-
   .search-container .search-row {
     width: 100%;
-    flex-direction: column; /* stack input + button vertically */
+    flex-direction: column;
   }
-
   .search-container .search-row .aegov-form-control {
-    width: 100%; /* full width on mobile */
+    width: 100%;
   }
-
   .search-container .search-row button {
-    width: 100%; /* full width on mobile */
+    width: 100%;
   }
 }
 
-/* ======================
-   Responsive adjustments
-====================== */
-
-/* Small screens ≤ 640px */
 @media (max-width: 640px) {
   .vector {
     display: none;
   }
-
   .dispute-container,
   #main {
     max-width: 100% !important;
@@ -62,43 +48,70 @@
     box-sizing: border-box;
     overflow-x: auto;
   }
-
   .dispute-container .custom-banner {
     font-size: 1rem !important;
   }
-
   .dispute-container h3,
   .dispute-container .aegov-btn {
     width: 100% !important;
     font-size: 0.9rem !important;
   }
-
   .dispute-container table {
     font-size: 0.8rem !important;
   }
-
   .dispute-container table th,
   .dispute-container table td {
     padding: 0.4rem !important;
   }
-
   .dispute-container img {
     width: 20px !important;
     height: 20px !important;
   }
-
+  .side-tabs div {
+    font-size: 0.85rem !important;
+    padding: 0.4rem !important;
+  }
+}
+@media (max-width: 700px) {
+  .vector {
+    display: none;
+  }
+  .dispute-container,
+  #main {
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+  .dispute-container .custom-banner {
+    font-size: 1rem !important;
+  }
+  .dispute-container h3,
+  .dispute-container .aegov-btn {
+    width: 100% !important;
+    font-size: 0.9rem !important;
+  }
+  .dispute-container table {
+    font-size: 0.8rem !important;
+  }
+  .dispute-container table th,
+  .dispute-container table td {
+    padding: 0.4rem !important;
+  }
+  .dispute-container img {
+    width: 20px !important;
+    height: 20px !important;
+  }
   .side-tabs div {
     font-size: 0.85rem !important;
     padding: 0.4rem !important;
   }
 }
 
-/* Medium screens ≤ 840px */
 @media (max-width: 840px) {
   .vector {
     display: none;
   }
-
   .dispute-container,
   #main {
     width: 100% !important;
@@ -109,9 +122,7 @@
   }
 }
 
-/* Extra-small screens ≤ 650px */
 @media (max-width: 650px) {
-  /* Hide table completely */
   .dispute-container table,
   .dispute-container table thead,
   .dispute-container table tbody,
@@ -120,8 +131,6 @@
   .dispute-container table td {
     display: none !important;
   }
-
-  /* Ensure container does not overflow */
   .dispute-container,
   #main {
     width: 100% !important;
@@ -130,37 +139,29 @@
     box-sizing: border-box;
     overflow-x: hidden !important;
   }
-
-  /* Adjust banners and other content */
   .dispute-container .custom-banner {
     font-size: 1rem !important;
     text-align: center;
   }
-
   .dispute-container h3,
   .dispute-container .aegov-btn {
     width: 100% !important;
     font-size: 0.9rem !important;
   }
-
   .side-tabs div {
     font-size: 0.85rem !important;
     padding: 0.4rem !important;
   }
-
   .dispute-container img {
     max-width: 100%;
     height: auto;
   }
 }
 
-
-/* Large screens ≤ 940px */
 @media (max-width: 940px) {
   .vector {
     display: none;
   }
-
   .dispute-container,
   #main {
     width: 100% !important;
@@ -171,12 +172,10 @@
   }
 }
 
-/* Extra-large screens ≤ 1024px */
 @media (max-width: 1024px) {
   .vector {
     display: none;
   }
-
   .dispute-container,
   #main {
     width: 100% !important;
@@ -185,33 +184,81 @@
     box-sizing: border-box;
     overflow-x: auto;
   }
-
   .dispute-container .custom-banner {
     font-size: 1.1rem !important;
   }
-
   .dispute-container h3,
   .dispute-container .aegov-btn {
     width: auto !important;
     font-size: 1rem !important;
   }
-
   .dispute-container table {
     font-size: 0.85rem !important;
   }
-
   .dispute-container table th,
   .dispute-container table td {
     padding: 0.45rem !important;
   }
-
   .dispute-container img {
     width: 25px !important;
     height: 25px !important;
   }
-
   .side-tabs div {
     font-size: 0.9rem !important;
     padding: 0.5rem !important;
   }
 }
+
+/* ======================
+   Extra-small screens ≤ 500px
+====================== */
+@media (max-width: 500px) {
+  .vector{
+    display:none
+  }
+  .dispute-container,
+  #main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.25rem !important;
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+  }
+
+  .dispute-container .custom-banner {
+    font-size: 0.9rem !important;
+    text-align: center;
+    padding: 0.5rem !important;
+  }
+
+  .dispute-container h3,
+  .dispute-container .aegov-btn {
+    width: 100% !important;
+    font-size: 0.8rem !important;
+    text-align: center;
+  }
+
+  .side-tabs div {
+    font-size: 0.8rem !important;
+    padding: 0.35rem !important;
+  }
+
+  .dispute-container img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .search-container .search-row {
+    gap: 0.25rem;
+  }
+
+  .search-container .search-row input {
+    font-size: 0.8rem !important;
+    padding: 0.4rem !important;
+  }
+
+  .search-container .search-row button {
+    font-size: 0.8rem !important;
+    padding: 0.4rem !important;
+  }
+}  

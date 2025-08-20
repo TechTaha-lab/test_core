@@ -1,67 +1,67 @@
-import React, { FC, ReactNode } from 'react';
+// CustomStepper.tsx
+import React, { FC, ReactNode } from "react";
 
-interface ICustomCardProps {
-  children: ReactNode;
-  className?: string;
-}
-
-interface IProgressStep {
+export interface IStep {
   id: number;
   title: string;
-  status: 'completed' | 'current' | 'upcoming';
-  description?: string;
+  date: string;
+  active?: boolean;
 }
 
-interface IProgressStepsProps {
-  steps: IProgressStep[];
-  className?: string;
+interface ICustomStepperProps {
+  steps: IStep[];
+  description?: string | ReactNode;
+  className?: string; // for wrapper styling
 }
 
-export const ProgressSteps: FC<IProgressStepsProps> = ({ steps, className }) => {
+export const CustomStepper: FC<ICustomStepperProps> = ({ steps, description, className }) => {
   return (
-    <nav aria-label="Progress" className={`aegov-step ${className || ''}`}>
-      <ol className="space-y-8">
-        {steps.map((step, index) => (
-          <li key={step.id} className={`relative ${step.status === 'completed' || step.status === 'current' ? 'pb-10' : ''}`}>
-            {(step.status === 'completed' || step.status === 'current') && (
-              <div className="step-connector-vertical absolute top-10 right-5 w-0.5 h-10 bg-green-500" aria-hidden="true"></div>
-            )}
-            
-            <div className="flex items-start">
-              <div className={`step-badge flex items-center justify-center w-10 h-10 rounded-full border-2 
-                ${step.status === 'completed' ? 'bg-green-500 border-green-500 text-white' : 
-                  step.status === 'current' ? 'bg-blue-600 border-blue-600 text-white shadow-lg' : 
-                  'bg-white border-gray-300 text-gray-400'}`}>
-                {step.status === 'completed' ? (
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                ) : (
-                  step.id
-                )}
-              </div>
-              
-              <div className="mr-4">
-                <span className={`text-sm font-medium ${step.status === 'completed' ? 'text-green-600' : 
-                  step.status === 'current' ? 'text-blue-600' : 'text-gray-500'}`}>
+    <div className={className}>
+      <nav
+        aria-label="Progress"
+        className="aegov-step inline-block text-right"
+        dir="rtl"
+      >
+        <ol role="list" className="flex flex-col relative">
+          {steps.map((step, index) => (
+            <li
+              key={step.id}
+              className={`relative flex items-center pb-10 ${
+                step.active ? "step-current" : "step-upcoming"
+              }`}
+            >
+              {index !== steps.length - 1 && (
+                <div
+                  className="step-connector-state step-connector-vertical absolute left-1/2 transform -translate-x-1/2 top-1/2 bottom-0 z-0"
+                  aria-hidden="true"
+                />
+              )}
+
+              <a
+                href="#"
+                className="step-badge relative z-10 flex-shrink-0"
+                aria-current={step.active ? "step" : undefined}
+              >
+                {step.id}
+                <span className="sr-only">{`Step ${step.id + 1}`}</span>
+              </a>
+
+              <div className="flex flex-col mr-4 -ml-6 -z-10">
+                <p className="text-[#232528] text-[26px] font-medium">
                   {step.title}
-                </span>
-                {step.description && (
-                  <p className="text-sm text-gray-500 mt-1">{step.description}</p>
-                )}
+                </p>
+                <span className="text-[#5F646D] text-[20px]">{step.date}</span>
               </div>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-};
+            </li>
+          ))}
+        </ol>
+      </nav>
 
-export const CustomCard: FC<ICustomCardProps> = ({ children, className }) => {
-  return (
-    <div className={`p-6 rounded-xl shadow-lg border border-yellow-200 bg-white ${className || ''}`}>
-      {children}
+      {description && (
+        <p className="text-[#5F646D] text-[14px] font-normal mt-2">
+          {description}
+        </p>
+      )}
     </div>
   );
 };

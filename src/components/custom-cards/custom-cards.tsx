@@ -26,16 +26,17 @@ export const CustomStepper: FC<ICustomStepperProps> = ({ steps, description, cla
           {steps.map((step, index) => (
             <li
               key={step.id}
-              className={`relative flex items-center pb-10 ${
-                step.active ? "step-current" : "step-upcoming"
-              }`}
+              className={`relative flex items-center pb-10 ${step.active ? "step-current" : "step-upcoming"
+                }`}
             >
               {index !== steps.length - 1 && (
                 <div
-                  className="step-connector-state step-connector-vertical absolute left-1/2 transform -translate-x-1/2 top-1/2 bottom-0 z-0"
+                  className="step-connector-state step-connector-vertical absolute left-1/2 transform -translate-x-1/2 h-[120px] w-px bg-gray-300 z-0"
                   aria-hidden="true"
                 />
+
               )}
+
 
               <a
                 href="#"
@@ -50,18 +51,22 @@ export const CustomStepper: FC<ICustomStepperProps> = ({ steps, description, cla
                 <p className="text-[#232528] text-[26px] font-medium">
                   {step.title}
                 </p>
-                <span className="text-[#5F646D] text-[20px]">{step.date}</span>
+                <span className="text-[#5F646D] text-[20px]">
+                  {step.date}
+                </span>
               </div>
+
             </li>
           ))}
         </ol>
       </nav>
 
       {description && (
-        <p className="text-[#5F646D] text-[14px] font-normal mt-2">
+        <p className="text-[#5F646D] text-[20px] font-normal whitespace-nowrap overflow-hidden overflow-ellipsis">
           {description}
         </p>
       )}
+
     </div>
   );
 };

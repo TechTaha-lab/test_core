@@ -6,7 +6,7 @@ interface IHeaderSkeletonProps {
 }
 /**
  * `HeaderSkeleton` is a skeleton loader component that displays a placeholder UI while content is loading.
- * It can adjust the layout direction based on the `isArabic` prop for RTL (Right-to-Left) or LTR (Left-to-Right) layouts.
+ * It can adjust the layout directioon based on the `isArabic` prop for RTL (Right-to-Left) or LTR (Left-to-Right) layouts.
  *
  * @param {boolean} isArabic - A boolean indicating whether the layout should be in Arabic (RTL). If `true`, the layout will be right-to-left.
  * 

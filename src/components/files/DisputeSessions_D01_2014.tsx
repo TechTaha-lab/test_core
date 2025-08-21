@@ -1,11 +1,6 @@
 
-import { useState } from "react";
-import vector from "../../assets/images/Vector.svg";
-import files from "../../assets/images/Files.svg";
-import clock from "../../assets/images/ClockCounterClockwise.png";
 import { CustomStepper } from "../custom-cards/custom-cards";
-import DisputeDocuments_D01_2014 from "./DisputeDocuments_D01_2014";
-import DisputeDetails_D01_2014 from "./DisputeDetails_D01_2014";
+
 interface IStep {
   id: number;
   title: string;
@@ -14,13 +9,7 @@ interface IStep {
 }
 
 const DisputeSessions_D01_2014 = () => {
-  const [activeTab, setActiveTab] = useState(0);
 
-  const tabsData = [
-    { title: "معلومات الملف", icon: vector, component: <DisputeDetails_D01_2014 /> },
-    { title: "الملفات القضائية", icon: files, component: <DisputeDocuments_D01_2014 /> },
-    { title: "سجل الملف", icon: clock },
-  ];
 
   const steps: IStep[] = [
     { id: 1, title: "في انتظار اجراءك", date: "12/8/2023", active: true },
